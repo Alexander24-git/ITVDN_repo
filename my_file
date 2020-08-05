@@ -1,5 +1,31 @@
 '''
-Дополнительное задание
+Задание 2
 
-Создайте список, введите количество его элементов и сами значения, выведите эти значения на экран в обратном порядке.
+Создайте программу, которая проверяет, является ли палиндромом введённая фраза.
 '''
+import re
+
+
+def is_palindrome(s):
+    """ this function  checks string is palindrome or not  """
+
+    s = s.lower()
+    new_s = re.sub(r"\W", "", s)
+    # Run loop from 0 to len/2
+    for i in range(0, int(len(new_s) / 2)):
+        if new_s[i] != new_s[len(new_s) - i - 1]:
+            return False
+
+    return True
+
+
+if __name__ == '__main__':
+    string_to_check = "а розa упала на лапу aзора"
+    #string_to_check = "asdfghjkl lkjhgfdsa"
+    #string_to_check = "Anna"
+    answer = is_palindrome(string_to_check)
+
+    if (answer):
+        print("Yes")
+    else:
+        print("No")
